@@ -1,0 +1,35 @@
+<div class="body-layout">
+    <h2 *ngIf="listHotels">List of Hotels</h2>
+
+    
+    <div class="card-layout">
+         <input type="text" [(ngModel)]="searchText" placeholder="Search by Hotel Name" />
+            <select aria-placeholder="Ratings" [(ngModel)]="selectedRating" > 
+                <option value=0>Filter by Rating</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+            </select>
+        
+        <mat-grid-list cols="5" rowHeight="2:1"
+            *ngFor="let hotel of listHotels | hotelFilter : searchText : 'hotelName' : selectedRating : 'rating'">
+            <!-- <mat-grid-tile> -->
+                <a [routerLink]="['view', hotel.hotelId]">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image">
+                                <h1>{{hotel.rating}}</h1>
+                            </div>
+                            <mat-card-title>{{hotel.hotelName}}</mat-card-title>
+                            <mat-card-subtitle>{{hotel.address.town}}, {{hotel.address.postcode}}</mat-card-subtitle>
+                        </mat-card-header>
+                    </mat-card>
+                </a>
+            <!-- </mat-grid-tile> -->
+        </mat-grid-list>
+        
+
+    </div>
+</div>
