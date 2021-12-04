@@ -1,7 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ListHotelsComponent } from './list-hotels.component';
+import { HotelFilterPipe } from '../hotel-filter.pipe';
+
 
 describe('ListHotelsComponent', () => {
   let component: ListHotelsComponent;
@@ -9,7 +11,8 @@ describe('ListHotelsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListHotelsComponent ],
+      imports: [HttpClientTestingModule],
+      declarations: [ ListHotelsComponent , HotelFilterPipe],
       providers:[HttpClientModule]
     })
     .compileComponents();

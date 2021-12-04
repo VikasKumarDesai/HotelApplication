@@ -1,6 +1,5 @@
 <div class="body-layout">
     <h2 *ngIf="listHotels">List of Hotels</h2>
-
     
     <div class="card-layout">
          <input type="text" [(ngModel)]="searchText" placeholder="Search by Hotel Name" />
@@ -15,7 +14,6 @@
         
         <mat-grid-list cols="5" rowHeight="2:1"
             *ngFor="let hotel of listHotels | hotelFilter : searchText : 'hotelName' : selectedRating : 'rating'">
-            <!-- <mat-grid-tile> -->
                 <a [routerLink]="['view', hotel.hotelId]">
                     <mat-card class="example-card">
                         <mat-card-header>
@@ -27,7 +25,6 @@
                         </mat-card-header>
                     </mat-card>
                 </a>
-            <!-- </mat-grid-tile> -->
         </mat-grid-list>
         
 

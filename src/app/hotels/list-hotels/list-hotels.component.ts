@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HotelService } from 'src/app/services/hotel.service';
-import { Sort } from '@angular/material/sort';
 
 export class Address {
   public town: string = '';
